@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>HBD Mariya 💞</title>     
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="file/default.css">
+    <script type="text/javascript" src="file/jquery.min.js"></script>
+    <script type="text/javascript" src="file/jscex.min.js"></script>
+    <script type="text/javascript" src="file/jscex-parser.js"></script>
+    <script type="text/javascript" src="file/jscex-jit.js"></script>
+    <script type="text/javascript" src="file/jscex-builderbase.min.js"></script>
+    <script type="text/javascript" src="file/jscex-async.min.js"></script>
+    <script type="text/javascript" src="file/jscex-async-powerpack.min.js"></script>
+    <script type="text/javascript" src="file/function.js" charset="utf-8"></script>
+    <script type="text/javascript" src="file/love.js" charset="utf-8"></script>
+
+    <style>
+body{margin:0;padding:0;background:#020111;overflow:hidden;font-family:"Microsoft YaHei",sans-serif}
+
+/* MOON & SKY */
+.moon{position:fixed;top:40px;left:40px;width:70px;height:70px;border-radius:50%;box-shadow:15px 10px 0 #fff;filter:drop-shadow(0 0 15px rgba(255,255,255,.4));z-index:5}
+.shooting-star{position:absolute;left:20%;top:0;width:100px;height:2px;background:linear-gradient(90deg,#fff,transparent);transform:rotate(35deg);animation:shoot 6s infinite;opacity:0}
+@keyframes shoot{0%{opacity:0}10%{opacity:1}20%,100%{transform:translate(600px,400px) rotate(35deg);opacity:0}}
+
+#star-container,#snow-container{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none}
+#star-container{z-index:0}
+#snow-container{z-index:10;display:none}
+
+.star{position:absolute;background:#fff;border-radius:50%;opacity:0;animation:twinkling var(--speed) infinite}
+@keyframes twinkling{0%,100%{opacity:0}50%{opacity:1}}
+
+.snowflake{position:absolute;background:#fff;border-radius:50%;opacity:.8;top:-10px;animation:fall var(--speed) linear infinite}
+@keyframes fall{to{transform:translateY(100vh)}}
+
+/* ARROW */
+.arrow-wrapper{position:fixed;top:39%;left:48%;width:280px;height:10px;z-index:150;animation:arrowFlight 3.5s forwards}
+@keyframes arrowFlight{from{transform:translate(-80vw,-80vh) rotate(35deg);opacity:0}to{transform:translate(-50%,-50%) rotate(35deg);opacity:1}}
+
+.arrow-shaft,.arrow-shaft-back{height:6px;background:#DAA520;position:absolute;top:2px}
+.arrow-shaft{width:60%;right:20px}
+.arrow-shaft-back{width:40%;left:0}
+.arrow-tail{position:absolute;left:-15px;top:-12px;width:45px;height:32px;background:#9370DB;clip-path:polygon(0 0,100% 50%,0 100%,30% 50%)}
+.arrow-tip{position:absolute;right:-25px;top:-10px;border-top:15px solid transparent;border-bottom:15px solid transparent;border-left:30px solid #ff758c}
+
+/* INTRO */
+#intro-layer{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:100}
+
+#pink-message-box{position:absolute;left:51%;top:45%;padding:10px 20px;border-left:2px solid #ffb3c1;border-bottom:2px solid #ffb3c1;display:none}
+#pink-message-box p{color:#ffb3c1;font-family:'Dancing Script',cursive;margin:0}
+
+/* ✅ FIXED HEART */
+.heart-button{
+    position:relative;
+    width:100px;
+    height:100px;
+    cursor:pointer;
+    z-index:100;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.heart-shape{
+    position:absolute;
+    inset:0;
+    background:#ff758c;
+    transform:rotate(-45deg);
+}
+.heart-shape::before,
+.heart-shape::after{
+    content:"";
+    position:absolute;
+    width:100px;
+    height:100px;
+    background:#ff758c;
+    border-radius:50%;
+}
+.heart-shape::before{top:-50px;left:0}
+.heart-shape::after{top:0;left:50px}
+
+.heart-text{
+    position:relative;
+    color:#fff;
+    font-weight:bold;
+    z-index:5;
+}
+
+.birthday-queen-text{font-family:'Cinzel Decorative',cursive;color:#ff7eb3;font-size:32px;margin-top:80px}
+
+/* MAIN */
+#main{display:none}
+#wrap{position:relative}
+#canvas{position:relative;z-index:1}
+#text,#clock-box{position:relative;z-index:5}
+
+#text{position:absolute;top:40px;left:60px;width:450px}
+#code{color:#ff99aa;font-size:16px;display:none}
+#clock-box{bottom:50px;left:50%;transform:translateX(-50%);text-align:center;display:none}
+.digit{color:#ff4d6d;font-size:30px}
+.salman-sig{font-family:'Dancing Script',cursive;font-size:34px;color:#ff758c}
+</style>
+</head>
+
+<body>
+
+<div class="moon"></div>
+<div class="shooting-star"></div>
+<div id="star-container"></div>
+<div id="snow-container"></div>
+
+<audio id="myAudio" loop><source src="aud.mp3"></audio>
+
+<div id="intro-layer">
+    <div id="pink-message-box"><p>Thanks for your click Beautiful!</p></div>
+
+    <div class="arrow-wrapper">
+        <div class="arrow-tail"></div>
+        <div class="arrow-shaft-back"></div>
+        <div class="arrow-shaft"></div>
+        <div class="arrow-tip"></div>
+    </div>
+
+    <!-- ✅ FIXED HEART HTML -->
+    <div class="heart-button" id="start-btn">
+        <div class="heart-shape"></div>
+        <span class="heart-text">Click Me</span>
+    </div>
+
+    <div class="birthday-queen-text">Birthday Queen</div>
+</div>
+
+<div id="main">
+    <div id="wrap">
+        <div id="text">
+            <div id="code">
+                Hey you Mariya 💞<br>
+                Happy Birthday 🎈<br>
+                May God bless you 🍀<br>
+                And give u many happiness 💕<br>
+                Just saying... you're pretty awesome ❤️<br>
+                Sending good vibes 😏<br>
+                <span class="salman-sig">Salman</span>
+            </div>
+        </div>
+        <div id="clock-box"><div id="message-box"></div><div id="clock"></div></div>
+        <canvas id="canvas"></canvas>
+    </div>
+</div>
+
+
+    <script>
+    function initStars() {
+        const container = document.getElementById('star-container');
+        for (let i = 0; i < 150; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            const size = Math.random() * 2 + 1;
+            star.style.width = size + 'px'; star.style.height = size + 'px';
+            star.style.left = Math.random() * 100 + '%'; star.style.top = Math.random() * 100 + '%';
+            star.style.setProperty('--speed', (Math.random() * 3 + 2) + 's');
+            star.style.animationDelay = Math.random() * 5 + 's';
+            container.appendChild(star);
+        }
+    }
+    
+    function initSnow() {
+        const container = document.getElementById('snow-container');
+        for (let i = 0; i < 50; i++) {
+            const flake = document.createElement('div');
+            flake.className = 'snowflake';
+            const size = Math.random() * 4 + 2;
+            flake.style.width = size + 'px'; flake.style.height = size + 'px';
+            flake.style.left = Math.random() * 100 + '%';
+            flake.style.setProperty('--speed', (Math.random() * 5 + 5) + 's');
+            flake.style.animationDelay = Math.random() * 5 + 's';
+            container.appendChild(flake);
+        }
+        $("#snow-container").fadeIn(3000);
+    }
+
+    initStars();
+
+    (function() {
+        var canvas = $('#canvas');
+        var width = 1100, height = 680;
+        canvas.attr("width", width).attr("height", height);
+
+        var tree = new Tree(canvas[0], width, height, {
+            seed: { x: width / 2 - 20, color: "rgb(190, 26, 37)", scale: 2 },
+            branch: [[535, 680, 570, 250, 500, 200, 30, 100, [[540, 500, 455, 417, 340, 400, 13, 100]]]],
+            bloom: { num: 700, width: 1080, height: 650 },
+            footer: { width: 1200, height: 5, speed: 10 }
+        });
+
+        var runAsync = eval(Jscex.compile("async", function () {
+            tree.seed.draw(); $await(Jscex.Async.sleep(1000));
+            while (tree.seed.canScale()) { tree.seed.scale(0.95); $await(Jscex.Async.sleep(10)); }
+            while (tree.seed.canMove()) { tree.seed.move(0, 2); tree.footer.draw(); $await(Jscex.Async.sleep(10)); }
+            do { tree.grow(); $await(Jscex.Async.sleep(10)); } while (tree.canGrow());
+            do { tree.flower(2); $await(Jscex.Async.sleep(10)); } while (tree.canFlower());
+            
+            initSnow(); // Trigger snow after flowers bloom
+
+            tree.snapshot("p1", 240, 0, 610, 680);
+            while (tree.move("p1", 500, 0)) { tree.footer.draw(); $await(Jscex.Async.sleep(10)); }
+            tree.snapshot("p2", 500, 0, 610, 680);
+            //canvas.parent().css("background", "url(" + tree.toDataURL('image/png') + ")");
+            $("#clock-box").show().animate({opacity: 1}, 1000); 
+            timeElapse("2025-12-24T00:00:00"); 
+            $("#code").show().typewriter();
+            window.setInterval(function() { timeElapse("2025-12-24T00:00:00"); }, 1000);
+        }));
+
+        $("#start-btn").click(function() {
+            $(".heart-text").fadeOut(200);
+            $("#pink-message-box").fadeIn(500);
+            document.getElementById("myAudio").play();
+            setTimeout(function() {
+                $("#intro-layer").fadeOut(1000, function() {
+                    $("#main").show().css("opacity", 1);
+                    runAsync().start();
+                });
+            }, 2500); 
+        });
+    })();
+
+    function timeElapse(date) {
+        var current = new Date(); var target = new Date(date); var diff = target - current; 
+        if (diff > 0) { $("#message-box").html("THE MAGIC BEGINS IN..."); var seconds = Math.floor(diff / 1000); } 
+        else { $("#message-box").html("THE WORLD JUST GOT LUCKIER SINCE"); var seconds = Math.floor(Math.abs(diff) / 1000); }
+        var days = Math.floor(seconds / (3600 * 24)); seconds %= (3600 * 24);
+        var hours = Math.floor(seconds / 3600); if (hours < 10) hours = "0" + hours;
+        seconds %= 3600; var minutes = Math.floor(seconds / 60); if (minutes < 10) minutes = "0" + minutes;
+        seconds %= 60; if (seconds < 10) seconds = "0" + seconds;
+        var result = "<span class=\"digit\">" + days + "</span> Days <span class=\"digit\">" + hours + "</span> Hrs <span class=\"digit\">" + minutes + "</span> Min <span class=\"digit\">" + seconds + "</span> Sec";
+        $("#clock").html(result);
+    }
+    </script>
+</body>
+</html>

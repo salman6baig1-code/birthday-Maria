@@ -95,4 +95,29 @@ a {
 
 .salman-sig {
     font-family: 'Great Vibes', cursive; /* Applied here */
+
+}
+
+
+/* Responsive adjustments for phones (like Vivo) */
+@media screen and (max-width: 600px) {
+    #code {
+        font-size: 14px; /* Makes the typewriter text smaller for phones */
+        width: 90% !important;
+        left: 5% !important;
+    }
+    
+    .saying {
+        font-size: 18px !important; /* Adjusts the "Happy Birthday" text size */
+    }
+
+    #clock-box {
+        font-size: 16px !important;
+        letter-spacing: 1px !important;
+    }
+
+    /* Adjust the "Click Me" heart size for mobile */
+    #loveHeart {
+        transform: scale(0.8); 
+    }
 }
